@@ -25,3 +25,5 @@ TextStyle KHomeTitleText =
 
 const newAndhotTempImage =
     "https://www.themoviedb.org/t/p/w710_and_h400_multi_faces/v3IgA4DxD6nMgDJahdLMA046eoh.jpg";
+const newAndhoteveroneswatchingImage =
+    "https://www.themoviedb.org/t/p/w710_and_h400_multi_faces/AaV1YIdWKnjAIAOe8UUKBFm327v.jpg";

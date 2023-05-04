@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/presentation/new_hot/widgets/coming_soon_widget.dart';
-import 'package:netflix/presentation/widgets/video_widget.dart';
+import 'package:netflix/presentation/new_hot/widgets/everyones_watch_widget.dart';
 
 import '../../core/const.dart';
-import '../home/widgets/custom_button_widget.dart';
 
 class ScreenNewAndHot extends StatelessWidget {
   const ScreenNewAndHot({super.key});
@@ -70,49 +69,11 @@ class ScreenNewAndHot extends StatelessWidget {
   }
 
   Widget _buildEveryoneswatching() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        kHeight,
-        const Text(
-          'Friends',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-        ),
-        kHeight,
-        const Text(
-          "This hit sitcoms follows the merry misadventure of six\n20-soething pals as the navigate the pitfalls of\nwork,life and love in 1990s Manhattan",
-          style: TextStyle(color: Colors.grey),
-        ),
-        kHeight50,
-        const VideoWidget(),
-        kHeight,
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: const [
-            CustomButtonWidget(
-              icon: Icons.share,
-              title: "Share",
-              iconSize: 25,
-              textSize: 14,
-            ),
-            kWidth,
-            CustomButtonWidget(
-              icon: Icons.add,
-              title: "MyList",
-              iconSize: 25,
-              textSize: 14,
-            ),
-            kWidth,
-            CustomButtonWidget(
-              icon: Icons.play_arrow,
-              title: "Play",
-              iconSize: 25,
-              textSize: 14,
-            ),
-            kWidth
-          ],
-        )
-      ],
+    return ListView.builder(
+      itemCount: 10,
+      itemBuilder: (context, index) {
+        return const EveryonesWatchingWidget();
+      },
     );
   }
 }
