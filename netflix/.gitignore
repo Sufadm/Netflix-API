@@ -44,4 +44,5 @@ app.*.map.json
 /android/app/release
 
 #ignore files(apikey)
-netflix\lib\infrastructure\apii_key.dart
+
+/key.dart
