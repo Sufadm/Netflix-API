@@ -61,7 +61,6 @@ class Section2 extends StatelessWidget {
         SizedBox(
           width: size.width,
           height: size.width,
-          // color: Colors.white,
           child: Stack(
             alignment: Alignment.center,
             children: [
