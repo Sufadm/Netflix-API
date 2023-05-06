@@ -87,10 +87,10 @@ class ScreenHome extends StatelessWidget {
                               children: [
                                 Text(
                                   'TV Shows',
-                                  style: KHomeTitleText,
+                                  style: kHomeTitleText,
                                 ),
-                                Text('Movies', style: KHomeTitleText),
-                                Text('Categories', style: KHomeTitleText)
+                                Text('Movies', style: kHomeTitleText),
+                                Text('Categories', style: kHomeTitleText)
                               ],
                             )
                           ],

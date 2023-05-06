@@ -20,7 +20,7 @@ final BorderRadius kradius30 = BorderRadius.circular(30);
 const kMainimage =
     "https://i.pinimg.com/originals/26/31/d8/2631d8fcdca20c412e66a124079ca1df.jpg";
 //text style
-TextStyle KHomeTitleText =
+TextStyle kHomeTitleText =
     const TextStyle(fontSize: 15, fontWeight: FontWeight.bold);
 
 const newAndhotTempImage =

@@ -1,4 +1,3 @@
-// ignore: depend_on_referenced_packages
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'downloads.freezed.dart';
 part 'downloads.g.dart';
