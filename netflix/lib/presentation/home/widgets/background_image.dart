@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:netflix/presentation/home/functions/functions.dart';
 
 import '../../../core/colors/colors.dart';
-import '../../../core/const.dart';
 import 'custom_button_widget.dart';
 
 class BackgroundImageWidget extends StatelessWidget {
@@ -11,13 +12,19 @@ class BackgroundImageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
-          decoration: const BoxDecoration(
-              image: DecorationImage(
-                  fit: BoxFit.fill, image: NetworkImage(kMainimage))),
-          width: double.infinity,
-          height: 550,
-        ),
+        CarouselSlider(
+            items: HomeFunction.trending
+                .map((item) => Container(
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: NetworkImage(
+                                  'https://image.tmdb.org/t/p/w500${item.backdropPath}'))),
+                      //width: double.infinity,
+                      //height: 550,
+                    ))
+                .toList(),
+            options: CarouselOptions(height: 600)),
         Positioned(
           bottom: 0,
           left: 0,

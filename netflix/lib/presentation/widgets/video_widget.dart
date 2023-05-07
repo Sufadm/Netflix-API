@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:netflix/core/const.dart';
 
 import '../../core/colors/colors.dart';
 
 class VideoWidget extends StatelessWidget {
   const VideoWidget({
+    required this.image,
     Key? key,
   }) : super(key: key);
-
+  final String image;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -16,7 +16,7 @@ class VideoWidget extends StatelessWidget {
           width: double.infinity,
           height: 200,
           child: Image.network(
-            newAndhotTempImage,
+            'https://image.tmdb.org/t/p/w500$image',
             fit: BoxFit.cover,
           ),
         ),

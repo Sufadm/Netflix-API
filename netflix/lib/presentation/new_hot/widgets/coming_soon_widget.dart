@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:netflix/core/colors/colors.dart';
 
 import '../../../core/const.dart';
+import '../../../models/trending/trending.dart';
 import '../../home/widgets/custom_button_widget.dart';
 import '../../widgets/video_widget.dart';
 
 class ComingSoonWidget extends StatelessWidget {
   const ComingSoonWidget({
     Key? key,
+    required this.movie,
   }) : super(key: key);
-
+  final Movies movie;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -21,13 +22,13 @@ class ComingSoonWidget extends StatelessWidget {
           width: 50,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            children: const [
-              Text('FEB',
-                  style: TextStyle(
+            children: [
+              Text(movie.releaseDate!,
+                  style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
                       color: Colors.grey)),
-              Text(
+              const Text(
                 '11',
                 style: TextStyle(
                     fontSize: 27,
@@ -43,15 +44,17 @@ class ComingSoonWidget extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const VideoWidget(),
+              VideoWidget(
+                image: movie.backdropPath!,
+              ),
               Row(
                 // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    'TALLGIRL2',
-                    style: TextStyle(
-                        letterSpacing: -4,
-                        fontSize: 35,
+                  Text(
+                    movie.title!,
+                    style: const TextStyle(
+                        letterSpacing: -2,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold),
                   ),
                   const Spacer(),
@@ -78,14 +81,15 @@ class ComingSoonWidget extends StatelessWidget {
               kHeight,
               const Text("Coming On Friday"),
               kHeight,
-              const Text(
-                'TallGirl2',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              Text(
+                movie.title!,
+                style:
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
               kHeight,
-              const Text(
-                "Landing the lead in the school musical is a dream come true for jodi, until the pressure sends her confidence - and her relationship in to a tail spin",
-                style: TextStyle(color: Colors.grey),
+              Text(
+                movie.overview!,
+                style: const TextStyle(color: Colors.grey, fontSize: 12.7),
               )
             ],
           ),

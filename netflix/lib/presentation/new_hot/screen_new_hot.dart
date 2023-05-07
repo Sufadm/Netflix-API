@@ -5,6 +5,8 @@ import 'package:netflix/presentation/new_hot/widgets/coming_soon_widget.dart';
 import 'package:netflix/presentation/new_hot/widgets/everyones_watch_widget.dart';
 
 import '../../core/const.dart';
+import '../home/functions/functions.dart';
+import 'functions/functions.dart';
 
 class ScreenNewAndHot extends StatelessWidget {
   const ScreenNewAndHot({super.key});
@@ -54,26 +56,33 @@ class ScreenNewAndHot extends StatelessWidget {
           ),
           body: TabBarView(
             children: [
-              _buildComingsoon(),
-              _buildEveryoneswatching(),
+              buildComingSoon(),
+              buildEveryoneWatching(),
             ],
           )),
     );
   }
 
-  Widget _buildComingsoon() {
+  Widget buildComingSoon() {
     return ListView.builder(
       itemCount: 10,
-      itemBuilder: (context, index) => const ComingSoonWidget(),
+      itemBuilder: (context, index) => Column(
+        children: [
+          kHeight,
+          ComingSoonWidget(
+            movie: HomeFunction.comingSoon[index],
+          )
+        ],
+      ),
     );
   }
 
-  Widget _buildEveryoneswatching() {
+  Widget buildEveryoneWatching() {
     return ListView.builder(
+      itemBuilder: (context, index) => EveryonesWatchingWidget(
+        movies: NewAndHotFunctions.discover[index],
+      ),
       itemCount: 10,
-      itemBuilder: (context, index) {
-        return const EveryonesWatchingWidget();
-      },
     );
   }
 }

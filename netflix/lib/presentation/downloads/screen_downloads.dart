@@ -1,9 +1,9 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/const.dart';
 import 'package:netflix/presentation/widgets/app_bar_widget.dart';
+import '../home/functions/functions.dart';
 
 class ScreenDownloads extends StatelessWidget {
   ScreenDownloads({super.key});
@@ -36,9 +36,9 @@ class ScreenDownloads extends StatelessWidget {
 class Section2 extends StatelessWidget {
   Section2({super.key});
   final List imagelist = [
-    'https://source.boomplaymusic.com/buzzgroup2/M00/33/42/rBEe_GJBZXqAc-1NAAIX1qF5vB050.webp',
-    'https://i.pinimg.com/originals/d4/80/e2/d480e25470cfd9ec06e323e6330105ae.jpg',
-    'https://hips.hearstapps.com/hmg-prod/images/teen-movies-on-netflix-hello-goodbye-1667939130.jpeg'
+    HomeFunction.comingSoon[0].posterPath,
+    HomeFunction.nowPlaying[0].posterPath,
+    HomeFunction.topRated[0].posterPath
   ];
 
   @override
@@ -190,7 +190,9 @@ class DownloadImageWidget extends StatelessWidget {
           height: size.width * 0.56,
           decoration: BoxDecoration(
               image: DecorationImage(
-                  fit: BoxFit.cover, image: NetworkImage(imagelist))),
+                  fit: BoxFit.cover,
+                  image: NetworkImage(
+                      'https://image.tmdb.org/t/p/w500$imagelist'))),
         ),
       ),
     );

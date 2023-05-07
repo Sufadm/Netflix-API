@@ -3,7 +3,9 @@ import 'package:flutter/rendering.dart';
 import 'package:netflix/core/const.dart';
 import 'package:netflix/presentation/home/widgets/background_image.dart';
 import 'package:netflix/presentation/home/widgets/number_title_card.dart';
-import 'package:netflix/presentation/widgets/main_title_card.dart';
+
+import '../widgets/main_title_card.dart';
+import 'functions/functions.dart';
 
 ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
 
@@ -20,7 +22,7 @@ class ScreenHome extends StatelessWidget {
           return NotificationListener<UserScrollNotification>(
             onNotification: ((notification) {
               final ScrollDirection direction = notification.direction;
-              // print(direction);
+
               if (direction == ScrollDirection.reverse) {
                 scrollNotifier.value = false;
               } else if (direction == ScrollDirection.forward) {
@@ -31,34 +33,40 @@ class ScreenHome extends StatelessWidget {
             child: Stack(
               children: [
                 ListView(
-                  children: const [
-                    BackgroundImageWidget(),
-                    MainTitlecard(
-                      title: 'Realease in the past year',
+                  children: [
+                    const BackgroundImageWidget(),
+                    CardRow(
+                      title: 'Released In Past Year',
+                      category: HomeFunction.comingSoon,
                     ),
                     kHeight,
-                    MainTitlecard(
+                    CardRow(
                       title: 'Trending Now',
+                      category: HomeFunction.trending,
                     ),
                     kHeight,
-                    NumberTitlecard(),
-                    MainTitlecard(
+                    const NumberTitlecard(
+                        title: 'Top 10 Tv Shows In India Today '),
+                    CardRow(
                       title: 'Tense Dramas',
+                      category: HomeFunction.nowPlaying,
                     ),
                     kHeight,
-                    MainTitlecard(
-                      title: 'South Indian Cinema',
+                    CardRow(
+                      title: 'South Indian Cinima',
+                      category: HomeFunction.topRated,
                     ),
-                    kHeight,
+                    //  kHeight,
                   ],
                 ),
-                scrollNotifier.value == true
+                scrollNotifier.value
                     ? AnimatedContainer(
                         duration: const Duration(milliseconds: 1000),
                         width: double.infinity,
                         height: 80,
                         color: Colors.black.withOpacity(0.3),
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Row(
                               children: [
@@ -87,10 +95,10 @@ class ScreenHome extends StatelessWidget {
                               children: [
                                 Text(
                                   'TV Shows',
-                                  style: KHomeTitleText,
+                                  style: kHomeTitleText,
                                 ),
-                                Text('Movies', style: KHomeTitleText),
-                                Text('Categories', style: KHomeTitleText)
+                                Text('Movies', style: kHomeTitleText),
+                                Text('Categories', style: kHomeTitleText)
                               ],
                             )
                           ],

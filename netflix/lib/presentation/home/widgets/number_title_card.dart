@@ -7,17 +7,18 @@ import '../../../core/const.dart';
 class NumberTitlecard extends StatelessWidget {
   const NumberTitlecard({
     Key? key,
+    required this.title,
   }) : super(key: key);
-
+  final String title;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Padding(
-          padding: EdgeInsets.all(10.0),
+        Padding(
+          padding: const EdgeInsets.all(10.0),
           child: MainTitle(
-            title: 'Top 10 Tv Shows in India Today',
+            title: title,
           ),
         ),
         kHeight,

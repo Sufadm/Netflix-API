@@ -2,30 +2,34 @@ import 'package:flutter/material.dart';
 import 'package:netflix/presentation/home/widgets/custom_button_widget.dart';
 
 import '../../../core/const.dart';
+import '../../../models/trending/trending.dart';
 import '../../widgets/video_widget.dart';
 
 class EveryonesWatchingWidget extends StatelessWidget {
   const EveryonesWatchingWidget({
     Key? key,
+    required this.movies,
   }) : super(key: key);
-
+  final Movies movies;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         kHeight,
-        const Text(
-          'Friends',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+        Text(
+          movies.title ?? 'unknown',
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
         ),
         kHeight,
-        const Text(
-          "This hit sitcoms follows the merry misadventure of six\n20-soething pals as the navigate the pitfalls of\nwork,life and love in 1990s Manhattan",
-          style: TextStyle(color: Colors.grey),
+        Text(
+          movies.overview ?? 'Unknown',
+          style: const TextStyle(color: Colors.grey),
         ),
         kHeight50,
-        const VideoWidget(),
+        VideoWidget(
+          image: movies.backdropPath!,
+        ),
         kHeight,
         Row(
           mainAxisAlignment: MainAxisAlignment.end,

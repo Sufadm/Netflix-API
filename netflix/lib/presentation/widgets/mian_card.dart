@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
 
-class Maincard extends StatelessWidget {
-  const Maincard({
-    Key? key,
-  }) : super(key: key);
-
+class MainCards extends StatelessWidget {
+  const MainCards({
+    super.key,
+    required this.imageUrl,
+  });
+  final String imageUrl;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 10),
-      width: 130,
-      height: 250,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        image: const DecorationImage(
-          image: NetworkImage(
-              'https://pbs.twimg.com/media/Ec_7SzOUEAAuGit.jpg:large'),
-        ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 4),
+      child: Container(
+        width: 106,
+        height: 160,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(3),
+            image: DecorationImage(
+                fit: BoxFit.cover,
+                image:
+                    NetworkImage('https://image.tmdb.org/t/p/w500$imageUrl'))),
       ),
     );
   }

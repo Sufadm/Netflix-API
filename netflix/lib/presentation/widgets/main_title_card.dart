@@ -1,32 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:netflix/core/const.dart';
 import 'package:netflix/presentation/widgets/main_title.dart';
-import 'package:netflix/presentation/widgets/mian_card.dart';
 
-class MainTitlecard extends StatelessWidget {
-  const MainTitlecard({
-    Key? key,
-    required this.title,
-  }) : super(key: key);
+import '../../models/trending/trending.dart';
+import '../home/functions/functions.dart';
+import 'mian_card.dart';
+
+class CardRow extends StatelessWidget {
+  const CardRow({super.key, required this.title, required this.category});
   final String title;
-
+  final List<Movies> category;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: MainTitle(
-            title: title,
-          ),
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+          child: MainTitle(title: title),
         ),
+        kHeight,
         LimitedBox(
-          maxHeight: 200,
+          maxHeight: 140,
           child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: List.generate(10, (index) => const Maincard())),
+            scrollDirection: Axis.horizontal,
+            children: List.generate(
+                HomeFunction.trending.length,
+                (index) => MainCards(
+                      imageUrl: category[index].posterPath!,
+                    )),
+          ),
         )
-        // Maincard(),
       ],
     );
   }
