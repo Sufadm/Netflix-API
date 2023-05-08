@@ -37,6 +37,7 @@ dependencies:
   get_it: ^7.4.1
   google_fonts: ^4.0.4
   http: ^0.13.6
+  intl: ^0.18.1
   json_annotation: ^4.8.1
   json_serializable: ^6.6.2
   video_player: ^2.6.1

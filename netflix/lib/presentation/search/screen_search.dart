@@ -14,9 +14,11 @@ class ScreenSearch extends StatelessWidget {
           child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
-          //crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CupertinoSearchTextField(
+              onChanged: (value) {
+                SearchFunction.searchResult(value);
+              },
               backgroundColor: Colors.grey.withOpacity(0.3),
               prefixIcon: const Icon(
                 Icons.search,

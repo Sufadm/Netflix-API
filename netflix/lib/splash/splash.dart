@@ -14,7 +14,10 @@ class SplashScreen extends StatelessWidget {
       body: SafeArea(
           child: Center(
         child: Image.network(
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDmmMZIyhtPhFrPgNJluXUJYJXROSX8Ua67A&usqp=CAU'),
+          'https://1000logos.net/wp-content/uploads/2017/05/Netflix-Logo-2001.png',
+          width: double.infinity,
+          height: double.infinity,
+        ),
       )),
     );
   }

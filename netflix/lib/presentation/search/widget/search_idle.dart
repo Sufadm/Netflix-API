@@ -7,8 +7,8 @@ import '../../../core/const.dart';
 import '../../../models/trending/trending.dart';
 import '../../home/functions/functions.dart';
 
-// const imageUrl =
-//     'https://dnm.nflximg.net/api/v6/2DuQlx0fM4wd1nzqm5BFBi6ILa8/AAAAQf3VSpWtBPM-i1nYk29d8w14UvjHwOgOsD5TDjKH0sVo_ER_sApaKGc2wi34fEmQf35Qw2u-nhMV1xvZpN0xd2Ggi2dPHu0mbccLy5MhU1qqWPe6C0L_LRk27CY82QY4Wi7UFnByElqBnc0DNXt9V8mt.jpg?r=c88';
+const imageUrl =
+    'https://dnm.nflximg.net/api/v6/2DuQlx0fM4wd1nzqm5BFBi6ILa8/AAAAQf3VSpWtBPM-i1nYk29d8w14UvjHwOgOsD5TDjKH0sVo_ER_sApaKGc2wi34fEmQf35Qw2u-nhMV1xvZpN0xd2Ggi2dPHu0mbccLy5MhU1qqWPe6C0L_LRk27CY82QY4Wi7UFnByElqBnc0DNXt9V8mt.jpg?r=c88';
 
 class SearchIdleWidget extends StatelessWidget {
   SearchIdleWidget({super.key});
@@ -27,7 +27,7 @@ class SearchIdleWidget extends StatelessWidget {
                     movies: movie[index],
                   ),
               separatorBuilder: (context, index) => kHeight20,
-              itemCount: 10),
+              itemCount: movie.length),
         )
       ],
     );

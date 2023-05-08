@@ -22,7 +22,6 @@ class ScreenHome extends StatelessWidget {
           return NotificationListener<UserScrollNotification>(
             onNotification: ((notification) {
               final ScrollDirection direction = notification.direction;
-
               if (direction == ScrollDirection.reverse) {
                 scrollNotifier.value = false;
               } else if (direction == ScrollDirection.forward) {
@@ -46,7 +45,8 @@ class ScreenHome extends StatelessWidget {
                     ),
                     kHeight,
                     const NumberTitlecard(
-                        title: 'Top 10 Tv Shows In India Today '),
+                      title: 'Top 10 Tv Shows In India Today ',
+                    ),
                     CardRow(
                       title: 'Tense Dramas',
                       category: HomeFunction.nowPlaying,

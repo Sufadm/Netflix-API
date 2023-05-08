@@ -7,11 +7,13 @@ import 'package:http/http.dart' as http;
 import '../../../models/trending/trending.dart';
 
 class HomeFunction {
+  static List<Movies> top10 = [];
   static List<Movies> trending = [];
   static List<Movies> comingSoon = [];
   static List<Movies> nowPlaying = [];
   static List<Movies> topRated = [];
   static String image = '';
+
   static Future<void> getTrending() async {
     try {
       final response = await http.get(Uri.parse(trendingUrl));

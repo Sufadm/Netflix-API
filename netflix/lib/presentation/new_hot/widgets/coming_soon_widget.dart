@@ -4,6 +4,7 @@ import '../../../core/const.dart';
 import '../../../models/trending/trending.dart';
 import '../../home/widgets/custom_button_widget.dart';
 import '../../widgets/video_widget.dart';
+import 'package:intl/intl.dart';
 
 class ComingSoonWidget extends StatelessWidget {
   const ComingSoonWidget({
@@ -14,7 +15,6 @@ class ComingSoonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
     return Row(
       children: [
         SizedBox(
@@ -23,18 +23,22 @@ class ComingSoonWidget extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text(movie.releaseDate!,
-                  style: const TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey)),
-              const Text(
-                '11',
-                style: TextStyle(
-                    fontSize: 27,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 4),
-              )
+              Text(
+                DateFormat.MMM().format(DateTime.parse(movie.releaseDate!)),
+                style: const TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey,
+                ),
+              ),
+              Text(
+                DateFormat.d().format(DateTime.parse(movie.releaseDate!)),
+                style: const TextStyle(
+                  fontSize: 27,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 4,
+                ),
+              ),
             ],
           ),
         ),
@@ -48,13 +52,12 @@ class ComingSoonWidget extends StatelessWidget {
                 image: movie.backdropPath!,
               ),
               Row(
-                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     movie.title!,
                     style: const TextStyle(
-                        letterSpacing: -2,
-                        fontSize: 20,
+                        letterSpacing: -1.5,
+                        fontSize: 15,
                         fontWeight: FontWeight.bold),
                   ),
                   const Spacer(),

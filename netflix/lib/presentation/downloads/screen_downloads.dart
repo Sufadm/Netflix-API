@@ -38,7 +38,7 @@ class Section2 extends StatelessWidget {
   final List imagelist = [
     HomeFunction.comingSoon[0].posterPath,
     HomeFunction.nowPlaying[0].posterPath,
-    HomeFunction.topRated[0].posterPath
+    HomeFunction.topRated[0].posterPath,
   ];
 
   @override
