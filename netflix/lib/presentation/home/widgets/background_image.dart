@@ -12,7 +12,7 @@ class BackgroundImageWidget extends StatelessWidget {
     return Stack(
       children: [
         Image.network(
-          'https://image.tmdb.org/t/p/original/${HomeFunction.trending[7].backdropPath}',
+          'https://image.tmdb.org/t/p/original/${HomeFunction.trending[0].backdropPath}',
           fit: BoxFit.cover,
           height: 600,
           width: double.infinity,
